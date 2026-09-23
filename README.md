@@ -16,7 +16,7 @@
 
 一款明亮、搞怪的办公室塔防。甩锅负责输出，摸鱼泡泡控制节奏，咖啡提供支援；一张“饼”还能改变工单的真实路线。**下载一个 HTML，用浏览器打开就能玩。** 不需要登录、后端或 API Key，游玩不联网、不调用 AI。
 
-*Friday 17:59 is an offline office tower-defense game with dynamic A* navigation, branching upgrades and tactical perks. Open one HTML file and play.*
+Friday 17:59 is an offline office tower-defense game with dynamic A* navigation, branching upgrades and tactical perks. Open one HTML file and play.
 
 ## 先看游戏，再看代码
 
