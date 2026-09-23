@@ -1,19 +1,47 @@
+<div align="center">
+
 # 周五 17:59 · 下班俱乐部
 
-一款明亮、搞怪、完全离线的办公室塔防。用甩锅、摸鱼和画饼，把临时需求留在办公室。
+**把「就改一版」留在办公室，守住你的下班出口。**
 
-![游戏封面](docs/images/00-cover.png)
+原生 HTML / JavaScript · 单文件离线 · MIT 开源
 
-[下载离线版](https://github.com/xiaom8413-afk/friday-1759/releases) · [架构说明](docs/ARCHITECTURE.md) · [实机画廊](docs/GALLERY.md) · [参与贡献](CONTRIBUTING.md)
+[直接下载试玩](https://github.com/xiaom8413-afk/friday-1759/releases/download/v0.3.0/friday-1759.html) · [完整源码包](https://github.com/xiaom8413-afk/friday-1759/releases/tag/v0.3.0) · [实机画廊](docs/GALLERY.md) · [架构原理](docs/ARCHITECTURE.md)
 
-**Friday 17:59** is an offline, zero-dependency office tower-defense game. Six maps, 48 waves, dynamic A* navigation, branching upgrades and tactical perks. Open one HTML file in a modern browser—no backend, login or AI API calls.
+![周五17:59 游戏封面](docs/images/00-cover.png)
 
+**6 张地图　/　48 波挑战　/　8 条进化路线　/　12 项局内福利**
 
-## 直接开玩
+</div>
 
-用 Chrome、Edge 或 Safari 打开 **`周五1759.html`**。这是独立文件，可以单独复制给朋友。不需要安装依赖、启动服务器、登录或联网。游玩不调用 AI，也不会产生 token 费用。
+一款明亮、搞怪的办公室塔防。甩锅负责输出，摸鱼泡泡控制节奏，咖啡提供支援；一张“饼”还能改变工单的真实路线。**下载一个 HTML，用浏览器打开就能玩。** 不需要登录、后端或 API Key，游玩不联网、不调用 AI。
 
-也可以打开源码入口 `index.html`；此时请保留同目录下的 CSS、JS 文件。之前的独立版本保留在 `versions/周五1759-v1.html` 和 `versions/周五1759-v2.html`。
+*Friday 17:59 is an offline office tower-defense game with dynamic A* navigation, branching upgrades and tactical perks. Open one HTML file and play.*
+
+## 先看游戏，再看代码
+
+### 工单会绕路，画饼会改道
+
+![实机战斗：布防与画饼](docs/images/05-battle.png)
+
+设备不仅攻击，也会改变道路。让工单绕路能赚经费，绕得太久又会触发红温加速；你需要同时考虑路线长度、减速和火力覆盖。
+
+<table>
+<tr><td width="50%"><img src="docs/images/07-evolution.png" alt="设备进化：甩锅接力或责任狙击"></td><td width="50%"><img src="docs/images/06-choice.png" alt="局内福利三选一"></td></tr>
+<tr><td><b>一台设备，两条路线</b><br>升到三级后选择互斥进化，决定它怎样参与整套防线。</td><td><b>每两波，一次新选择</b><br>从火力、经济和技能福利中做取舍；最终波除外。</td></tr>
+<tr><td><img src="docs/images/02-maps.png" alt="六张地图选择"></td><td><img src="docs/images/09-archive.png" alt="档案室的书柜通道"></td></tr>
+<tr><td><b>六关各有规则</b><br>开放工位、咖啡地砖、会议工单、天台经济与周末 Boss。</td><td><b>地形真的影响布防</b><br>书柜构成通道，地毯延缓工单；选位置也是策略。</td></tr>
+</table>
+
+> 上图来自正常界面操作，未修改经费或战局。更多图鉴、福利与战报见 [完整画廊](docs/GALLERY.md)。
+
+## 30 秒开玩
+
+1. [下载 friday-1759.html](https://github.com/xiaom8413-afk/friday-1759/releases/download/v0.3.0/friday-1759.html)。
+2. 用 Chrome、Edge 或 Safari 打开下载的文件。
+3. 选设备、点空工位布防，然后开启第一波。按 **Q** 画饼，按 **E** 全员断网。
+
+建议电脑游玩。存档留在当前浏览器与本机；恢复的是波次检查点，进行中的一波需重打。下载后的文件可单独复制，源码入口 `index.html` 则需要同目录 CSS / JS。历史单文件版本位于 `versions/`。
 
 ## 游戏内容
 
