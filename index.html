@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7ee">
+  <title>周五 17:59 · 下班俱乐部</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23a6d4bb'/%3E%3Cpath d='m23 27-12-8v26l12-9q14 16 31-5Q37 13 23 27' fill='%23fff8dd' stroke='%2336534b' stroke-width='3'/%3E%3Ccircle cx='43' cy='29' r='2' fill='%2336534b'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="#"><span data-art="fish" class="brand-mark"></span><span>FRIDAY CLUB<small>下班俱乐部</small></span></a>
+      <nav><button id="levels-btn" class="nav-button" data-control="map">关卡地图</button><button id="help-btn" class="nav-button" data-control="book">摸鱼手册</button><button id="intel-btn" class="nav-button" data-control="book">战术面板</button><span class="edition">战术进阶版 · 03</span></nav>
+    </header>
+    <section class="heading">
+      <div class="heading-copy"><div class="eyebrow"><i></i> 今天也要，好好下班。</div><h1>周五 <span>17:59</span><span class="title-badge">准点下班保卫战</span></h1><p>用一点小聪明，把临时需求留在办公室。</p></div>
+      <div class="hero-art" id="hero-art"></div><div class="office-clock"><span>距离自由</span><b id="clock">01:00</b><small>每守住一波，都更近一点</small></div>
+    </section>
+    <section class="chapter-strip" id="chapter-strip" aria-label="选择关卡"></section>
+    <section class="perk-ribbon"><span class="perk-ribbon-label">本局福利</span><div id="owned-perks"></div><button id="perk-btn">每 2 波领福利</button></section>
+    <div id="resume-banner" class="resume-banner hidden"><span data-control="save"></span><span id="resume-text">发现上次的摸鱼进度</span><button id="resume-btn">继续上次游戏</button><button id="dismiss-resume" aria-label="收起存档提示" data-control="close"></button></div>
+    <section class="dashboard" aria-label="战况">
+      <div class="stat"><span class="stat-art" data-art="heart"></span><div><label>精神状态</label><strong id="lives">20<em> / 20</em></strong><div class="life-track"><i id="life-bar"></i></div></div></div>
+      <div class="stat"><span class="stat-art" data-art="coin"></span><div><label>摸鱼经费</label><strong id="money">¥ 200</strong><small id="bonus">绕路也能产生带薪收入</small></div></div>
+      <div class="stat"><span class="stat-art" data-art="paper"></span><div><label>需求批次</label><strong id="wave">00<em> / 05</em></strong><small id="wave-name">暴风雨前的工位</small></div></div>
+      <div class="stat"><span class="stat-art" data-art="star"></span><div><label>已婉拒工单</label><strong id="kills">000</strong><small id="best">本关还未通关</small></div></div>
+    </section>
+    <div class="game-layout">
+      <section class="board-panel">
+        <div class="board-toolbar"><span><i class="status-dot"></i><b id="status">布置工位</b><small id="route-info"></small></span><div><button id="focus-btn" class="chip" aria-label="切换专注模式" title="专注模式 F"></button><button id="path-btn" class="chip active" aria-pressed="true" title="显示路线"></button><button id="sound-btn" class="chip" aria-pressed="false" title="声音开关"></button></div></div>
+        <div class="canvas-wrap" id="canvas-wrap">
+          <canvas id="game" width="1000" height="650" tabindex="0" aria-label="塔防地图：选设备后点击空工位建造。方向键移动光标，回车操作。"></canvas>
+          <div class="map-label"><span>需求入口</span><span id="map-title">阳光实习区</span><span>下班出口</span></div>
+          <div class="map-note" id="map-note"></div><div class="toast" id="toast" role="status" aria-live="polite"></div>
+          <div class="overlay hidden" id="result-overlay"><div class="result-card"><div class="result-illustration" id="result-illustration"></div><span class="eyebrow" id="result-tag"></span><h2 id="result-title"></h2><div id="result-stars" class="result-stars"></div><p id="result-description"></p><div class="result-actions"><button class="primary" id="next-level"></button><button class="secondary" id="play-again">再挑战一次</button></div></div></div>
+        </div>
+        <div class="board-footer"><span><i class="legend path"></i>规划路线</span><span><i class="legend cake"></i>画饼改道</span><span><i class="legend rage"></i>红温加速</span><span class="coord" id="coord">SUNSHINE OFFICE / 01</span></div>
+        <div class="transport"><button id="wave-btn" class="primary"></button><button id="pause-btn" class="secondary" disabled></button><button id="speed-btn" class="secondary"></button><button id="reset-btn" class="quiet" title="重开本关"></button></div>
+        <div class="wave-preview"><div><span class="tiny-label">下一波预告</span><b id="preview-title"></b></div><div class="enemy-preview" id="enemy-preview"></div><span class="save-indicator" id="save-indicator"></span></div>
+      </section>
+      <aside class="side-panel">
+        <div class="section-label"><h2>今天用什么摸鱼？</h2><span>装备小卖部</span></div>
+        <div id="tower-list" class="tower-list"></div>
+        <div class="selection-panel" id="selection-panel"></div>
+        <div class="skill-grid"><button class="skill-card cake-skill" id="cake-btn"><span class="skill-art" data-art="cake"></span><span><strong>给他们画饼 <kbd>Q</kbd></strong><small id="cake-label">全场改道 · 8 秒</small></span><b id="cake-timer">就绪</b></button><button class="skill-card sleep-skill" id="freeze-btn"><span class="skill-art" data-art="sleep"></span><span><strong>全员断网 <kbd>E</kbd></strong><small>现有工单暂停 2.8 秒</small></span><b id="freeze-timer">就绪</b></button></div>
+        <div class="rule-card"><div class="rule-heading"><span data-art="fish"></span><span><b id="rule-title">工位生存小贴士</b><small id="level-rule"></small></span></div><p id="rule-copy"></p></div>
+      </aside>
+    </div>
+    <footer class="page-footer"><span>认真摸鱼，准点下班。</span><span><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> 选设备 <kbd>Q</kbd> 画饼 <kbd>E</kbd> 断网 <kbd>Space</kbd> 暂停 <kbd>F</kbd> 专注</span><span>全程离线 · 进度保存在本机</span></footer>
+  </main>
+  <dialog id="level-dialog" class="level-dialog"><button class="dialog-close" id="close-levels" aria-label="关闭关卡地图" data-control="close"></button><span class="eyebrow">THE GREAT OFFICE ESCAPE</span><h2>今天，从哪里溜走？</h2><p class="dialog-intro">6 个工位，48 波离谱需求。每张地图都可以直接挑战。</p><div id="level-grid" class="level-grid"></div><div class="level-detail"><div><strong id="level-detail-title"></strong><p id="level-detail-copy"></p><small>切换将重新开始所选关卡；已获得的星级永久保留。</small></div><button class="primary" id="enter-level">去这个工位</button></div></dialog>
+  <dialog id="help-dialog"><button class="dialog-close" id="close-help" aria-label="关闭摸鱼手册" data-control="close"></button><span class="eyebrow">EMPLOYEE SURVIVAL HANDBOOK</span><h2>你的 KPI：准点下班。</h2><div class="help-grid"><article><span data-art="pot"></span><b>设备，也是你的迷宫</b><p>选设备，点空格建造。工单自动找最短路。不能封死道路，点设备可升级、出售。</p></article><article><span data-art="coin"></span><b>多绕两步，带薪摸鱼</b><p>相对直线进度多走 6 格赚 ¥3，最多赚 ¥9。走到 25 格会红温加速，泡泡可暂时安抚。</p></article><article><span data-art="cake"></span><b>饼不必真，路线得真</b><p>按 Q 再点空格，全场先去吃饼。按 E 断网，现有工单暂停 2.8 秒。每波结束重置技能。</p></article><article><span data-art="coffee"></span><b>咖啡，给整条防线续命</b><p>咖啡站给范围内设备提速 25%–45%，多个站不叠加。紫色会议怪会拉住同事，趁机群攻。</p></article></div><div class="help-bottom"><p>每 2 波可三选一领福利，三级设备可选择专属进化方向。三星：剩余精神 ≥16；二星：≥8；一星：成功通关。自动保存每波开始前的布防，刷新可继续。切换窗口自动暂停。特殊地砖与收入以当前关卡提示为准。</p><button class="primary" id="start-help">知道了，开始摸鱼</button></div></dialog>
+  <dialog id="perk-dialog" class="perk-dialog"><button class="dialog-close" id="close-perks" aria-label="稍后选择福利" data-control="close"></button><span class="eyebrow">CHOOSE YOUR OFFICE ADVANTAGE</span><h2>这次，福利是真的。</h2><p class="dialog-intro">三选一，本关永久生效。选择适合当前防线的那张。</p><div id="perk-options" class="perk-options"></div><p class="dialog-hint">每守住两波可领取一次；重新开局会出现不同组合。</p></dialog>
+  <dialog id="evolve-dialog"><button class="dialog-close" id="close-evolve" aria-label="关闭分支进化" data-control="close"></button><span class="eyebrow">PICK A SPECIALTY. MAKE IT YOURS.</span><h2 id="evolve-title">设备分支进化</h2><p class="dialog-intro">三级设备可以再进化一次。两条路线互斥，出售后可以重新建设。</p><div id="evolve-options" class="evolve-options"></div></dialog>
+  <dialog id="intel-dialog" class="intel-dialog"><button class="dialog-close" id="close-intel" aria-label="关闭战术面板" data-control="close"></button><span class="eyebrow">A LITTLE STRATEGY. A LOT LESS OVERTIME.</span><h2>摸鱼，也要讲战术。</h2><div class="intel-tabs"><button data-tab="report" class="active">本局战报</button><button data-tab="enemies">工单图鉴</button><button data-tab="perks">福利组合</button></div><div id="intel-content"></div></dialog>
+  <script src="engine.js"></script>
+  <script src="art.js"></script>
+  <script src="renderer.js"></script>
+  <script src="systems.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

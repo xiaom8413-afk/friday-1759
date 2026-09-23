@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#181e1c">
+  <title>周五 17:59 · 准点下班保卫战</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='18' fill='%23d7fa69'/%3E%3Ctext x='40' y='56' text-anchor='middle' font-size='50'%3E鱼%3C/text%3E%3C/svg%3E">
+  <style>
+:root{--bg:#181e1c;--panel:#202824;--line:#394239;--cream:#efeeda;--muted:#8e9a8f;--lime:#d7fa69;--coral:#f99d83;--blue:#92cfd8}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--cream);font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif;font-size:14px}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer;color:inherit;border:0;transition:background .18s,transform .18s,opacity .18s}button:disabled{cursor:not-allowed;opacity:.4}button:not(:disabled):active{transform:translateY(1px)}button:focus-visible,a:focus-visible,canvas:focus-visible{outline:2px solid var(--lime);outline-offset:4px}button:hover:not(:disabled){filter:brightness(1.12)}.app{max-width:1440px;margin:auto;padding:0 42px}.topbar{height:83px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:12px;font-size:16px;letter-spacing:1.7px;font-weight:800;text-decoration:none;color:var(--cream)}.brand-mark{display:grid;place-items:center;background:var(--lime);color:var(--bg);width:35px;height:35px;border-radius:50%;font-size:29px}.brand small{display:block;font-size:10px;letter-spacing:3px;color:var(--muted);margin-top:5px;font-weight:400}.header-center{font-size:11px;letter-spacing:1.7px;color:var(--muted)}.live-dot,.status-dot{width:6px;height:6px;border-radius:50%;display:inline-block;background:var(--lime);margin-right:8px}.version{margin-left:28px;color:#647367;font-family:monospace}.icon-button{background:none;font-size:12px;color:#b3beb1}.icon-button span{border:1px solid #647367;border-radius:50%;padding:1px 5px;margin-left:7px}.heading{display:flex;align-items:center;justify-content:space-between;padding:34px 0 28px}.eyebrow{font-family:monospace;font-size:10px;letter-spacing:2.3px;color:var(--muted)}h1{font-size:48px;letter-spacing:-2px;line-height:1.12;margin:12px 0 10px;font-weight:850}h1 span{font-family:Arial,sans-serif;font-weight:900;color:var(--lime);letter-spacing:-3px}h1 i{font-style:normal;display:inline-block;font-size:12px;letter-spacing:2px;margin-left:25px;padding:8px 10px;border:1px solid #727b61;transform:rotate(-5deg);vertical-align:middle;color:var(--lime)}.heading p{font-size:12px;color:var(--muted);margin:0}.office-clock{text-align:right;padding-right:4px}.office-clock span{display:block;color:var(--muted);font-size:10px;letter-spacing:3px}.office-clock b{display:block;font-family:monospace;font-weight:400;font-size:44px;letter-spacing:-3px;line-height:1.3}.office-clock small{color:#677869;font-size:9px}.dashboard{display:grid;grid-template-columns:repeat(4,1fr);background:#232b26;border:1px solid var(--line);border-radius:10px;margin-bottom:24px;padding:18px 0}.stat{padding:0 24px;position:relative}.stat+.stat{border-left:1px solid var(--line)}.stat>span{display:block;color:#a9b5a5;font-size:11px;letter-spacing:1.4px;margin-bottom:7px}.stat strong{font-size:29px;font-family:monospace;font-weight:500;line-height:1}.stat strong em{font-size:15px;color:#6e7b6d;font-style:normal}.stat small{display:block;font-size:10px;color:#7e8b7b;margin-top:8px}.lime{color:var(--lime)}.life-track{height:3px;background:#3b4539;width:130px;max-width:100%;margin-top:11px}.life-track i{height:100%;display:block;background:var(--lime);transition:width .3s}.game-layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:24px}.board-panel{min-width:0}.board-toolbar{display:flex;justify-content:space-between;align-items:center;padding:2px 0 12px;height:38px}.board-toolbar b{font-size:12px;font-weight:500}.board-toolbar small{font-size:10px;color:#778773;margin-left:14px}.chip{background:transparent;border:1px solid var(--line);border-radius:5px;font-size:9px;padding:5px 7px;color:#8a9885;margin-left:4px;font-family:monospace}.chip.active{color:var(--lime);border-color:#5c6948}.canvas-wrap{position:relative;border:1px solid #4b5846;background:#222b25;border-radius:9px;overflow:hidden;aspect-ratio:1000/650;touch-action:none}canvas{display:block;width:100%;height:100%;cursor:crosshair}.map-label{position:absolute;pointer-events:none;top:14px;left:18px;right:18px;display:flex;justify-content:space-between;font-size:9px;letter-spacing:2px;color:#91a282}.map-label span:last-child{color:var(--lime)}.map-note{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);pointer-events:none;white-space:nowrap;padding:9px 14px;border:1px solid #4d5c3f;border-radius:5px;background:#1b231ded;font-size:10px;color:#b6c2a3;transition:opacity .4s}.map-note span{color:var(--lime);font-family:monospace;margin-right:8px}.toast{position:absolute;top:45px;left:50%;transform:translate(-50%,-8px);opacity:0;pointer-events:none;padding:10px 15px;background:var(--cream);color:#243322;border-radius:5px;max-width:90%;width:max-content;font-size:12px;transition:all .2s;z-index:4;box-shadow:0 8px 20px #0003}.toast.visible{opacity:1;transform:translate(-50%,0)}.board-footer{display:flex;gap:18px;align-items:center;padding:12px 0;color:#7e8d77;font-size:9px;flex-wrap:wrap}.legend{display:inline-block;width:7px;height:7px;margin-right:5px;border-radius:2px}.legend.path{background:#99ab65}.legend.cake{background:#f3bb83}.legend.rage{background:var(--coral)}.coord{margin-left:auto;font-family:monospace;font-size:8px;letter-spacing:1px}.transport{display:flex;gap:9px;margin-top:10px}.primary{border-radius:6px;background:var(--lime);color:#233021;min-height:47px;padding:12px 20px;font-size:13px;font-weight:750;letter-spacing:.5px}.transport .primary{flex:1;display:flex;align-items:center;justify-content:space-between;text-align:left}.primary span{font-size:11px;font-weight:500}.secondary{border-radius:6px;border:1px solid #47523f;background:#283025;font-size:11px;padding:0 17px;white-space:nowrap}.quiet{background:none;font-size:11px;color:#88967d;padding:0 8px;white-space:nowrap}.section-label{display:flex;justify-content:space-between;align-items:baseline;height:38px;padding-top:4px}.section-label h2{font-size:13px;letter-spacing:1px;font-weight:500;margin:0}.section-label>span{font-family:monospace;font-size:7px;color:#6e7e68;letter-spacing:.8px}.tower-list{display:flex;flex-direction:column;gap:9px}.tower-card{border:1px solid #3e4939;border-radius:7px;background:#252d26;text-align:left;padding:13px 12px;display:flex;gap:12px;align-items:center;width:100%;position:relative}.tower-card.selected{background:#303c26;border-color:#adca5b;box-shadow:inset 3px 0 var(--lime)}.tower-icon{width:43px;height:43px;background:#35402c;border-radius:7px;display:grid;place-items:center;font-size:26px;flex-shrink:0;color:var(--lime);font-family:Arial,sans-serif}.tower-card:nth-child(2) .tower-icon{background:#293c3b;color:var(--blue)}.tower-card:nth-child(3) .tower-icon{background:#463b30;color:#f3bf8b}.tower-copy{flex:1}.tower-copy strong{display:block;font-size:12px;font-weight:650;margin-bottom:6px}.tower-copy small{display:block;color:#92a086;font-size:9px}.tower-price{font-size:13px;color:var(--lime);font-family:monospace}.tower-price kbd{display:block;text-align:right;margin-top:7px;color:#788770;background:none;border:0;font-size:9px}.selection-panel{border:1px dashed #45533d;border-radius:6px;padding:14px 15px;margin-top:14px;min-height:124px}.selection-title{display:flex;justify-content:space-between;font-size:11px;color:#b5c49a}.selection-title>span{color:var(--lime)}.selection-panel p{font-size:11px;line-height:1.9;color:#92a083;margin:9px 0 6px}.selection-panel small{font-size:9px;color:#65765d}.selected-actions{display:flex;gap:8px;margin-top:12px}.selected-actions button{padding:8px 10px;font-size:10px;border-radius:4px;background:#3b492b;color:var(--lime);flex:1}.selected-actions button:last-child{background:#332f27;color:#c7b590}.cake-skill{margin-top:14px;width:100%;border:1px solid #856844;background:#3e3528;border-radius:7px;padding:14px 11px;display:flex;align-items:center;gap:11px;text-align:left}.cake-skill.selected{outline:2px solid #f3bf8b;outline-offset:2px}.cake-icon{color:#f3bf8b;font-size:28px}.cake-skill strong{font-size:11px;display:block;color:#f3bf8b;margin-bottom:7px}.cake-skill small{font-size:9px;color:#ac926c}.cake-skill>b{font-family:monospace;font-size:10px;color:#e0b480;margin-left:auto}.cake-skill kbd{margin-left:5px;background:#4b402f;border-color:#816848;color:#cfb387}.rule-card{position:relative;margin-top:18px;background:#dee3cd;color:#39472d;border-radius:6px;padding:18px 16px;transform:rotate(-1deg)}.rule-card h3{font-size:14px;letter-spacing:.3px;margin:5px 0 12px}.rule-card p{font-size:11px;line-height:1.95;margin:0;color:#6b7559}.rule-card p b{color:#394d2d}.rule-card p b.coral{color:#aa5d44}.rule-card small{font-size:9px;color:#7a826c;line-height:1.7}.rule-line{border-top:1px dashed #b4bea5;margin:12px 0 9px}.stamp{position:absolute;right:10px;top:-8px;padding:4px 7px;background:#c5cdaf;font-size:8px;color:#62744b;transform:rotate(7deg);border:1px solid #afbb97}.page-footer{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #303a2e;padding:19px 0;margin-top:30px;color:#5f705b;font-size:8px;gap:12px;letter-spacing:.4px}.page-footer>span:last-child{font-family:monospace;font-size:8px}kbd{display:inline-block;padding:2px 4px;border:1px solid #46513d;background:#252d23;border-radius:3px;font-family:monospace;font-size:8px;color:#95a583;margin-right:3px}.hidden{display:none!important}.overlay{position:absolute;inset:0;background:#141c16df;z-index:5;display:grid;place-items:center;backdrop-filter:blur(4px);text-align:center;padding:22px}.result-card{max-width:440px}.result-sticker{display:inline-block;background:var(--lime);color:#2b3623;font-size:48px;font-weight:850;letter-spacing:5px;padding:10px 20px;margin:24px 0 4px;transform:rotate(-7deg);border:3px double #31402c}.result-card h2{font-size:25px}.result-card p{font-size:12px;line-height:1.9;color:#a9b89b}.result-card .primary{margin-top:10px}dialog{background:#252f27;color:var(--cream);border:1px solid #6b795a;border-radius:13px;padding:36px;max-width:670px;width:90%;box-shadow:0 25px 80px #0006}dialog::backdrop{background:#101813cc;backdrop-filter:blur(5px)}dialog h2{font-size:30px;margin:15px 0}dialog p{font-size:12px;line-height:1.9;color:#a9b699}.dialog-close{position:absolute;top:14px;right:16px;background:none;font-size:25px;color:#a8b498}.help-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 26px;margin:26px 0}.help-grid b{font-size:12px;color:var(--lime)}.help-grid p{font-size:11px}.help-bottom{border-top:1px solid #43513a;padding-top:12px;display:flex;align-items:center;gap:25px}.help-bottom p{font-size:10px;flex:1}.help-bottom .primary{white-space:nowrap;font-size:11px}
+@media(min-width:1500px){.app{padding-top:12px}.heading{padding-top:40px;padding-bottom:36px}.game-layout{grid-template-columns:minmax(0,1fr) 296px;gap:30px}.tower-card{padding:16px 14px}.rule-card{padding:22px 17px}.selection-panel{min-height:140px}}@media(max-width:1100px){.app{padding:0 24px}.game-layout{grid-template-columns:minmax(0,1fr) 250px;gap:18px}h1{font-size:42px}h1 i{font-size:10px;margin-left:16px}.board-toolbar small{display:none}.board-footer{gap:10px;font-size:8px}.coord{display:none}.secondary{padding:0 12px}.transport{gap:6px}.page-footer>span:last-child{display:none}.selection-panel{min-height:110px}.rule-card{margin-top:16px}}@media(max-width:820px){.app{padding:0 18px}.header-center{display:none}.heading{padding:25px 0}.game-layout{grid-template-columns:1fr}.side-panel{display:grid;grid-template-columns:1fr 1fr;gap:12px}.section-label{grid-column:1/-1;height:auto}.tower-list{grid-column:1/-1;flex-direction:row;gap:8px}.tower-card{padding:10px 8px;gap:8px}.tower-icon{width:32px;height:36px;font-size:22px}.tower-copy small{font-size:8px;line-height:1.5}.tower-copy strong{font-size:11px}.tower-price{font-size:11px}.selection-panel,.cake-skill,.rule-card{margin-top:0}.selection-panel{grid-column:1;grid-row:3/5;min-height:150px}.cake-skill{grid-column:2}.rule-card{grid-column:2;transform:none}.rule-card h3{font-size:12px}.rule-card p{font-size:10px}.rule-card small,.rule-line,.stamp{display:none}.page-footer{margin-top:24px;flex-wrap:wrap}.dashboard{margin-bottom:18px}.office-clock b{font-size:35px}.office-clock small{display:none}.stat{padding:0 15px}.stat small{font-size:8px}h1{font-size:40px}h1 i{display:none}.map-note{font-size:9px}.canvas-wrap{border-radius:6px}}@media(max-width:480px){.app{padding:0 12px}.topbar{height:65px}.heading{padding:22px 0}.eyebrow{font-size:8px;letter-spacing:1.5px}h1{font-size:36px}.heading p{font-size:10px}.office-clock b{font-size:30px}.office-clock span{font-size:8px}.dashboard{padding:14px 0}.stat{padding:0 9px}.stat>span{font-size:9px;letter-spacing:0}.stat strong{font-size:22px}.stat strong em{font-size:10px}.stat small{font-size:7px;line-height:1.5}.stat:first-child{width:auto}.board-footer{gap:9px}.board-toolbar{height:33px}.map-label{top:8px;left:10px;right:10px;font-size:7px;letter-spacing:0}.map-note{bottom:7px;padding:5px 8px;font-size:8px}.transport .primary{padding:10px;font-size:11px}.transport .primary span{font-size:9px}.secondary{padding:0 8px;font-size:10px}.quiet{padding:0 4px;font-size:9px}.tower-card{display:grid;grid-template-columns:25px 1fr;gap:8px 6px}.tower-icon{width:25px;height:30px;font-size:20px}.tower-price{grid-column:2;display:flex;justify-content:space-between}.tower-price kbd{margin:0}.tower-copy small{font-size:7px}.tower-copy strong{font-size:10px}.selection-panel{padding:12px}.cake-skill{padding:11px 8px;gap:6px}.cake-icon{font-size:22px}.cake-skill strong{font-size:9px}.cake-skill small{font-size:8px}.cake-skill>b{font-size:9px}.rule-card{padding:12px}.rule-card h3{font-size:11px}.page-footer{font-size:7px}.page-footer>span:nth-child(2){line-height:2}dialog{padding:25px}.help-grid{grid-template-columns:1fr;gap:4px;margin:16px 0}.help-grid p{margin-top:6px}.help-bottom{display:block}.help-bottom button{width:100%}.result-sticker{font-size:25px;margin:8px 0}.result-card h2{font-size:18px;margin:10px 0}.result-card p{font-size:10px}.result-card .primary{min-height:35px;font-size:11px;padding:8px 12px}}
+
+/* Keep intrinsic text widths from pushing narrow grids off screen. */
+.dashboard{grid-template-columns:repeat(4,minmax(0,1fr))}.stat{min-width:0}.stat strong{white-space:nowrap}.stat small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.life-track{width:100%;max-width:130px}.tower-card{min-width:0}.tower-copy{min-width:0}
+.focus-mode .topbar,.focus-mode .heading,.focus-mode .page-footer{display:none}.focus-mode .app{padding-top:12px}.focus-mode .dashboard{padding:12px 0;margin-bottom:14px}.focus-mode .stat small{display:none}.focus-mode .game-layout{align-items:start}.focus-mode .rule-card{margin-top:14px}
+@media(min-width:821px){.focus-mode .app{max-width:min(1440px,calc((100vh - 250px)*1.5385 + 388px));padding-left:30px;padding-right:30px}.focus-mode .side-panel .tower-card{padding-top:10px;padding-bottom:10px}.focus-mode .side-panel .selection-panel{min-height:114px}.focus-mode .rule-card{padding:13px 16px}.focus-mode .rule-card h3{font-size:12px}.focus-mode .rule-card p{font-size:10px}.focus-mode .rule-line{margin:8px 0}.focus-mode .rule-card small{font-size:8px}}
+@media(max-width:820px){.side-panel{grid-template-columns:repeat(2,minmax(0,1fr))}.tower-list{min-width:0}.tower-card{flex:1}.cake-skill{min-width:0}.cake-skill strong{white-space:nowrap}.cake-skill>b{flex-shrink:0}.focus-mode .app{padding-top:8px}.focus-mode .side-panel .rule-card{margin-top:0}}
+@media(max-width:480px){.stat strong{font-size:21px}.stat strong em{font-size:9px}.stat small{font-size:7px}.cake-skill kbd{display:none}.cake-skill>b{font-size:8px}.cake-skill{gap:4px}.cake-icon{font-size:19px}.board-toolbar b{font-size:10px}.chip{font-size:8px;padding:5px}}
+
+</style>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="周五 17:59 首页"><span class="brand-mark">↗</span><span>FRIDAY CLUB<small>非必要不奋斗</small></span></a>
+      <div class="header-center"><span class="live-dot"></span> 办公室防御系统 <span class="version">VOL. 001</span></div>
+      <button class="icon-button" id="help-btn" title="玩法说明">玩法说明 <span>?</span></button>
+    </header>
+
+    <section class="heading">
+      <div><div class="eyebrow">A VERY UNPROFESSIONAL TOWER DEFENSE</div><h1>周五 <span>17:59</span><i>准点下班保卫战</i></h1><p>需求可以明天改。今天的你，必须准点走。</p></div>
+      <div class="office-clock"><span>距离自由</span><b id="clock">01:00</b><small>每守住一波，离下班更近一点</small></div>
+    </section>
+
+    <section class="dashboard" aria-label="战况">
+      <div class="stat"><span>精神状态</span><strong id="lives">20<em> / 20</em></strong><div class="life-track"><i id="life-bar"></i></div></div>
+      <div class="stat"><span>摸鱼经费</span><strong class="lime" id="money">¥ 185</strong><small id="bonus">绕路工单会产生带薪收入</small></div>
+      <div class="stat"><span>需求批次</span><strong id="wave">00<em> / 10</em></strong><small id="wave-name">暴风雨前的工位</small></div>
+      <div class="stat"><span>已婉拒工单</span><strong id="kills">000</strong><small id="best">最佳记录 · 暂无</small></div>
+    </section>
+
+    <div class="game-layout">
+      <section class="board-panel">
+        <div class="board-toolbar"><span><i class="status-dot"></i><b id="status">布置工位</b><small id="route-info">自动寻路已就绪</small></span><div><button id="focus-btn" class="chip" aria-pressed="false" title="收起页头，专注游戏（F）">专注 ⛶</button><button id="path-btn" class="chip active" aria-pressed="true">路线 ON</button><button id="sound-btn" class="chip" aria-pressed="false">声音 OFF</button></div></div>
+        <div class="canvas-wrap" id="canvas-wrap">
+          <canvas id="game" width="1000" height="650" tabindex="0" aria-label="塔防地图：点击空格建造，点击炮塔升级或出售。也可用方向键移动光标，回车操作。"></canvas>
+          <div class="map-label top"><span>← 需求入口</span><span>我的下班出口 →</span></div>
+          <div class="map-note" id="map-note"><span>01</span> 选一台设备，点击空工位布防</div>
+          <div class="toast" id="toast" role="status" aria-live="polite"></div>
+          <div class="overlay hidden" id="result-overlay"><div class="result-card"><span class="eyebrow" id="result-tag">OUT OF OFFICE</span><div class="result-sticker" id="result-sticker">溜了</div><h2 id="result-title">今天的班，就上到这。</h2><p id="result-description"></p><button class="primary" id="play-again">再当一次下班战神 ↗</button></div></div>
+        </div>
+        <div class="board-footer"><span><i class="legend path"></i> 工单规划路线</span><span><i class="legend cake"></i> 画饼诱导路线</span><span><i class="legend rage"></i> 红温 = 加速冲刺</span><span class="coord" id="coord">OFFICE / FLOOR 01</span></div>
+        <div class="transport"><button id="wave-btn" class="primary">放他们进来 <span>第 1 波 →</span></button><button id="pause-btn" class="secondary" disabled>Ⅱ 暂停</button><button id="speed-btn" class="secondary">1× 速度</button><button id="reset-btn" class="quiet" title="重开本局">↺ 重开</button></div>
+      </section>
+
+      <aside class="side-panel">
+        <div class="section-label"><h2>反内卷装备</h2><span>SELECT YOUR EXCUSE</span></div>
+        <div id="tower-list" class="tower-list"></div>
+        <div class="selection-panel" id="selection-panel"><div class="selection-title"><b>生存指南 #01</b><span>↙</span></div><p>炮塔也是障碍物。<br>把工位摆成迷宫，让需求多走两步。</p><small>但请留一条路，做人留一线。</small></div>
+        <button class="cake-skill" id="cake-btn"><span class="cake-icon">◎</span><span><strong>给他们画个饼 <kbd>Q</kbd></strong><small id="cake-label">骗全场改道 · 持续 8 秒</small></span><b id="cake-timer">就绪 ↗</b></button>
+        <div class="rule-card"><span class="stamp">荒诞但合理</span><h3>需求绕路，也算工时。</h3><p>每多走 6 格，入账 <b>¥3</b>。<br>每张工单最多薅 <b>¥9</b>。<br>走满 25 格就会<b class="coral">红温加速</b>。</p><div class="rule-line"></div><small>用泡泡安抚红温，用画饼拉长路线。<br>你的摸鱼，值得精打细算。</small></div>
+      </aside>
+    </div>
+    <footer class="page-footer"><span>100% 本地摸鱼 · 0% AI 加班</span><span><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> 选设备 <kbd>Q</kbd> 画饼 <kbd>Space</kbd> 开波 / 暂停 <kbd>Esc</kbd> 取消</span><span>MADE FOR LEAVING ON TIME ↗</span></footer>
+  </main>
+
+  <dialog id="help-dialog"><button class="dialog-close" id="close-help" aria-label="关闭玩法说明">×</button><div class="eyebrow">EMPLOYEE SURVIVAL HANDBOOK</div><h2>你的 KPI：准点下班。</h2><p class="dialog-intro">十波离谱需求正在逼近。别让它们走进右侧出口，耗光你的精神状态。</p><div class="help-grid"><article><b>01 / 布置摸鱼防线</b><p>选择设备，再点空格建造。设备会挡路，工单会实时寻找最短路线。不能封死道路。</p></article><article><b>02 / 把绕路变成收入</b><p>相对直线路程，每多绕 6 格，产出 ¥3（每只上限 ¥9）。累计走到第 25 格会红温，速度提升 45%。泡泡可以暂时安抚它。</p></article><article><b>03 / 别光攻击，学会画饼</b><p>按 Q，再点一个空格。所有工单先去吃饼，再找出口。饼持续 8 秒，冷却 22 秒；每只工单吃到后恢复正常路线。</p></article><article><b>04 / 用他们自己的会困住他们</b><p>紫色“紧急会议”会强行拉附近工单停下开会，趁机群攻！“需求文档”有护甲，乱回台能穿透；第 5、10 波领导亲自来了。</p></article></div><div class="help-bottom"><p>点已建设备可升级或出售。每波结束补发预算。切换窗口自动暂停。按 F 进入专注模式。</p><button class="primary" id="start-help">知道了，开始摸鱼 ↗</button></div></dialog>
+  <script>
+/* Pure simulation. No browser, network, timer, or rendering dependency. */
+(function (root) {
+  'use strict';
+  const COLS = 20, ROWS = 12;
+  const ENTRY = { x: 0, y: 5 }, EXIT = { x: 19, y: 5 };
+  const ROCKS = [[5, 2], [5, 3], [5, 8], [5, 9], [14, 2], [14, 3], [14, 8], [14, 9]];
+  const TYPES = {
+    pot: { name: '甩锅回旋镖', cost: 45, range: 3.1, damage: 18, interval: .82, color: '#d7fa69', icon: '◉', desc: '单点高伤 · 锅到病除' },
+    bubble: { name: '摸鱼泡泡机', cost: 60, range: 2.8, damage: 5, interval: 1.15, color: '#92cfd8', icon: '◌', desc: '群体减速 · 安抚红温' },
+    reply: { name: '已读乱回台', cost: 85, range: 3.35, damage: 19, interval: 1.6, color: '#f3bf8b', icon: '▤', desc: '范围乱回 · 无视护甲' }
+  };
+  const WAVES = ['临下班，来个小需求', '这事顺手帮一下', '先拉个会对齐一下', '需求文档共 208 页', '小领导：耽误你两分钟', '刚才的需求全部推翻', '下班前再开个短会', '甲方说还是第一版好', '全员紧急！紧急！紧急！', '终极 Boss：就改一版'];
+  const key = (x, y) => x + y * COLS;
+  const same = (a, b) => a.x === b.x && a.y === b.y;
+  const inside = (x, y) => Number.isInteger(x) && Number.isInteger(y) && x >= 0 && y >= 0 && x < COLS && y < ROWS;
+  const distance = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+
+  // A*: Manhattan heuristic is admissible for the four-connected office grid.
+  function findPath(start, goal, blocked) {
+    if (!inside(start.x, start.y) || !inside(goal.x, goal.y) || blocked.has(key(start.x, start.y)) || blocked.has(key(goal.x, goal.y))) return null;
+    const startKey = key(start.x, start.y), endKey = key(goal.x, goal.y);
+    const scores = new Map([[startKey, 0]]), parents = new Map(), closed = new Set();
+    const h = (x, y) => Math.abs(x - goal.x) + Math.abs(y - goal.y);
+    const open = [{ x: start.x, y: start.y, k: startKey, f: h(start.x, start.y), h: h(start.x, start.y) }];
+    while (open.length) {
+      open.sort((a, b) => a.f - b.f || a.h - b.h || a.k - b.k);
+      const n = open.shift();
+      if (closed.has(n.k)) continue;
+      if (n.k === endKey) {
+        const path = [{ x: n.x, y: n.y }];
+        let at = n.k;
+        while (at !== startKey) { at = parents.get(at); path.push({ x: at % COLS, y: Math.floor(at / COLS) }); }
+        return path.reverse();
+      }
+      closed.add(n.k);
+      for (const [dx, dy] of [[1, 0], [0, -1], [0, 1], [-1, 0]]) {
+        const x = n.x + dx, y = n.y + dy, k = key(x, y), g = scores.get(n.k) + 1;
+        if (!inside(x, y) || blocked.has(k) || closed.has(k) || g >= (scores.get(k) ?? Infinity)) continue;
+        scores.set(k, g); parents.set(k, n.k); open.push({ x, y, k, f: g + h(x, y), h: h(x, y) });
+      }
+    }
+    return null;
+  }
+
+  class Game {
+    constructor() {
+      this.money = 185; this.lives = 20; this.wave = 0; this.kills = 0; this.income = 0;
+      this.state = 'build'; this.time = 0; this.towers = []; this.enemies = []; this.projectiles = []; this.events = [];
+      this.cake = null; this.cakeReady = 0; this.nextId = 1; this.pending = []; this.spawnTimer = 0;
+      this.rocks = new Set(ROCKS.map(([x, y]) => key(x, y))); this.blocked = new Set(this.rocks);
+      this.route = findPath(ENTRY, EXIT, this.blocked); this.pathVersion = 0;
+      this.stats = { cakes: 0, rage: 0, shots: 0 };
+    }
+    emit(type, data = {}) { this.events.push({ type, ...data }); if (this.events.length > 300) this.events.shift(); }
+    takeEvents() { return this.events.splice(0); }
+    towerAt(x, y) { return this.towers.find(t => t.x === x && t.y === y); }
+    statsFor(t) {
+      const base = TYPES[t.type], n = t.level - 1;
+      return { ...base, damage: base.damage * (1 + n * .65), range: base.range + n * .35, interval: base.interval / (1 + n * .16) };
+    }
+    buildCheck(x, y, type) {
+      if (!TYPES[type]) return { ok: false, reason: '先选一种反内卷装备。' };
+      if (!['build', 'wave'].includes(this.state)) return { ok: false, reason: '这局已经结束，重新开局吧。' };
+      if (!inside(x, y) || x === 0 || x === COLS - 1) return { ok: false, reason: '入口和出口的消防通道不能占。' };
+      if (this.blocked.has(key(x, y))) return { ok: false, reason: '这个工位已经有人了。' };
+      if (this.cake && same(this.cake, { x, y })) return { ok: false, reason: '饼还在这里，先让他们吃完。' };
+      if (this.money < TYPES[type].cost) return { ok: false, reason: '经费不足，先让工单多绕两步。' };
+      if (this.enemies.some(e => same(e.cell, { x, y }) || (e.path[0] && same(e.path[0], { x, y })))) return { ok: false, reason: '工单正在经过，不能直接拿桌子压人。' };
+      const blocked = new Set(this.blocked); blocked.add(key(x, y));
+      if (!findPath(ENTRY, EXIT, blocked)) return { ok: false, reason: '不能封死道路。给需求留条活路。' };
+      if (this.cake && !findPath(ENTRY, this.cake, blocked)) return { ok: false, reason: '你把画的饼堵住了，这不合规。' };
+      for (const e of this.enemies) {
+        const from = e.path[0] || e.cell;
+        if (!findPath(from, EXIT, blocked) || (this.cake && e.ate !== this.cake.id && !findPath(from, this.cake, blocked))) return { ok: false, reason: '会把工单困在里面，换个工位。' };
+      }
+      return { ok: true, blocked };
+    }
+    build(x, y, type) {
+      const check = this.buildCheck(x, y, type); if (!check.ok) return check;
+      const t = { id: this.nextId++, x, y, type, level: 1, spent: TYPES[type].cost, cooldown: 0, angle: -.4 };
+      this.towers.push(t); this.money -= TYPES[type].cost; this.blocked = check.blocked; this.repath();
+      this.emit('build', { x, y, color: TYPES[type].color }); return { ok: true, tower: t };
+    }
+    upgradeCost(t) { return Math.round(TYPES[t.type].cost * (.75 + .45 * (t.level - 1))); }
+    upgrade(id) {
+      const t = this.towers.find(t => t.id === id);
+      if (!t || t.level >= 3 || !['build', 'wave'].includes(this.state)) return { ok: false, reason: '已经是反内卷满级装备了。' };
+      const cost = this.upgradeCost(t);
+      if (this.money < cost) return { ok: false, reason: '升级经费不足。' };
+      t.level++; t.spent += cost; this.money -= cost; this.emit('build', { x: t.x, y: t.y, color: TYPES[t.type].color }); return { ok: true };
+    }
+    sell(id) {
+      if (!['build', 'wave'].includes(this.state)) return false;
+      const t = this.towers.find(t => t.id === id); if (!t) return false;
+      this.money += Math.floor(t.spent * .7); this.towers = this.towers.filter(v => v !== t); this.blocked.delete(key(t.x, t.y)); this.repath(); return true;
+    }
+    pathFor(start, e) {
+      if (this.cake && e.ate !== this.cake.id) {
+        const first = findPath(start, this.cake, this.blocked), second = findPath(this.cake, EXIT, this.blocked);
+        if (first && second) return first.concat(second.slice(1));
+      }
+      return findPath(start, EXIT, this.blocked);
+    }
+    repath() {
+      this.pathVersion++; this.route = findPath(ENTRY, EXIT, this.blocked);
+      for (const e of this.enemies) {
+        // Keep the segment already being traversed; never jump through a desk.
+        const next = e.path[0];
+        e.path = next ? this.pathFor(next, e) : this.pathFor(e.cell, e).slice(1);
+      }
+    }
+    cakeCheck(x, y) {
+      if (this.state !== 'wave') return { ok: false, reason: '先开始这一波，再请大家吃饼。' };
+      if (this.cakeReady > this.time) return { ok: false, reason: '领导正在组织下一张饼，稍等。' };
+      if (!inside(x, y) || x === 0 || x === COLS - 1 || this.blocked.has(key(x, y))) return { ok: false, reason: '选一个能走到的空工位画饼。' };
+      if (!findPath(ENTRY, { x, y }, this.blocked)) return { ok: false, reason: '饼太远，大家够不着。' };
+      if (this.enemies.some(e => !findPath(e.path[0] || e.cell, { x, y }, this.blocked))) return { ok: false, reason: '有工单走不到这个饼。' };
+      return { ok: true };
+    }
+    placeCake(x, y) {
+      const check = this.cakeCheck(x, y); if (!check.ok) return check;
+      this.cake = { x, y, id: this.nextId++, expires: this.time + 8 }; this.cakeReady = this.time + 22;
+      this.stats.cakes++; this.repath(); this.emit('cake', { x, y }); return { ok: true };
+    }
+    startWave() {
+      if (this.state !== 'build' || this.wave >= 10) return false;
+      this.wave++; this.state = 'wave'; this.pending = []; this.spawnTimer = .5;
+      const count = 6 + this.wave * 2;
+      for (let i = 0; i < count; i++) {
+        let type = 'normal';
+        if (this.wave >= 2 && i % 4 === 2) type = 'fast';
+        if (this.wave >= 3 && i % 5 === 4) type = 'armor';
+        if (this.wave >= 3 && i % 7 === 3) type = 'meeting';
+        this.pending.push(type);
+      }
+      if (this.wave === 5 || this.wave === 10) this.pending.splice(Math.floor(count / 2), 0, 'boss');
+      this.emit('wave', { wave: this.wave, name: WAVES[this.wave - 1] }); return true;
+    }
+    spawn(type) {
+      const scale = 1 + .16 * (this.wave - 1) + .02 * (this.wave - 1) ** 2;
+      const spec = {
+        normal: { hp: 34, speed: 1.55, reward: 6, leak: 1, armor: 0, name: '临时需求', color: '#e8e5d0' },
+        fast: { hp: 23, speed: 2.55, reward: 7, leak: 1, armor: 0, name: '顺手帮下', color: '#d7fa69' },
+        armor: { hp: 80, speed: 1.05, reward: 11, leak: 2, armor: .45, name: '需求文档', color: '#a8bab7' },
+        meeting: { hp: 49, speed: 1.7, reward: 9, leak: 2, armor: .12, name: '紧急会议', color: '#d6b1d8' },
+        boss: { hp: this.wave === 10 ? 330 : 220, speed: .75, reward: 65, leak: 8, armor: .25, name: this.wave === 10 ? '就改一版' : '耽误两分钟', color: '#f99d83' }
+      }[type];
+      const e = { ...spec, id: this.nextId++, type, x: ENTRY.x, y: ENTRY.y, cell: { ...ENTRY }, hp: spec.hp * scale, maxHp: spec.hp * scale, steps: 0, paid: 0, slowUntil: 0, calmUntil: 0, holdUntil: 0, nextMeeting: this.time + 4, ate: null, rage: false, path: [] };
+      e.path = this.pathFor(ENTRY, e).slice(1); this.enemies.push(e); return e;
+    }
+    hit(e, damage, trueDamage = false) {
+      if (e.dead) return;
+      e.hp -= damage * (trueDamage ? 1 : 1 - e.armor);
+      e.flash = this.time + .1;
+      if (e.hp <= 0) {
+        e.dead = true; this.kills++; this.money += e.reward;
+        this.emit('kill', { x: e.x, y: e.y, reward: e.reward, color: e.color, boss: e.type === 'boss' });
+      }
+    }
+    move(e, dt) {
+      if (e.holdUntil > this.time) return;
+      const angry = e.steps >= 25 && e.calmUntil <= this.time;
+      if (angry && !e.rage) { this.stats.rage++; this.emit('rage', { x: e.x, y: e.y }); }
+      e.rage = angry;
+      let remaining = e.speed * dt * (angry ? 1.45 : 1) * (e.slowUntil > this.time ? .48 : 1);
+      while (remaining > 0 && e.path.length) {
+        const next = e.path[0], d = distance(e, next);
+        if (d > remaining) { e.x += (next.x - e.x) / d * remaining; e.y += (next.y - e.y) / d * remaining; remaining = 0; }
+        else {
+          e.x = next.x; e.y = next.y; e.cell = { ...next }; e.path.shift(); remaining -= d; e.steps++;
+          const due = Math.min(3, Math.floor(Math.max(0, e.steps - e.cell.x) / 6));
+          if (due > e.paid) { const amount = (due - e.paid) * 3; e.paid = due; this.money += amount; this.income += amount; this.emit('income', { x: e.x, y: e.y, amount }); }
+          if (this.cake && e.ate !== this.cake.id && same(e.cell, this.cake)) { e.ate = this.cake.id; this.emit('eat', { x: e.x, y: e.y }); }
+        }
+      }
+      if (!e.path.length && same(e.cell, EXIT)) {
+        e.dead = true; e.escaped = true; this.lives = Math.max(0, this.lives - e.leak); this.emit('leak', { x: EXIT.x, y: EXIT.y, amount: e.leak, name: e.name });
+      }
+    }
+    update(dt) {
+      if (this.state !== 'wave' || !Number.isFinite(dt) || dt <= 0) return;
+      // Fixed-step caller supplies 1/60 s; clamp accidental large jumps.
+      dt = Math.min(dt, .05); this.time += dt;
+      if (this.cake && this.cake.expires <= this.time) { this.cake = null; this.repath(); this.emit('cake-end'); }
+      this.spawnTimer -= dt;
+      if (this.pending.length && this.spawnTimer <= 0) { this.spawn(this.pending.shift()); this.spawnTimer += Math.max(.5, 1.05 - this.wave * .035); }
+      // A meeting is its own worst enemy: it periodically stops nearby paperwork.
+      for (const e of this.enemies) if (!e.dead && e.type === 'meeting' && e.nextMeeting <= this.time) {
+        e.nextMeeting = this.time + 7.5;
+        for (const colleague of this.enemies) if (!colleague.dead && colleague.type !== 'boss' && distance(e, colleague) <= 2.1) colleague.holdUntil = Math.max(colleague.holdUntil, this.time + 1.8);
+        this.emit('meeting', { x: e.x, y: e.y });
+      }
+      for (const e of this.enemies) if (!e.dead) this.move(e, dt);
+      if (this.lives <= 0) { this.state = 'lost'; this.emit('end', { won: false }); return; }
+      for (const t of this.towers) {
+        t.cooldown -= dt; if (t.cooldown > 0) continue;
+        const s = this.statsFor(t);
+        const targets = this.enemies.filter(e => !e.dead && distance(e, t) <= s.range);
+        targets.sort((a, b) => (a.path.length - b.path.length) || (a.hp - b.hp));
+        const target = targets[0]; if (!target) continue;
+        t.angle = Math.atan2(target.y - t.y, target.x - t.x); t.cooldown = s.interval;
+        this.projectiles.push({ x: t.x, y: t.y, fromX: t.x, fromY: t.y, target: target.id, tx: target.x, ty: target.y, type: t.type, damage: s.damage, level: t.level, age: 0 }); this.stats.shots++;
+        this.emit('shot', { typeName: t.type, x: t.x, y: t.y });
+      }
+      for (const p of this.projectiles) {
+        p.age += dt;
+        const target = this.enemies.find(e => e.id === p.target && !e.dead);
+        if (target) { p.tx = target.x; p.ty = target.y; }
+        const d = Math.hypot(p.tx - p.x, p.ty - p.y), step = 11 * dt;
+        if (d <= step) {
+          if (p.returning) { p.done = true; continue; }
+          p.done = true;
+          const center = { x: p.tx, y: p.ty };
+          if (p.type === 'pot') { if (target) this.hit(target, p.damage); }
+          else {
+            const radius = p.type === 'bubble' ? 1.15 : 1.45;
+            for (const e of this.enemies) if (!e.dead && distance(e, center) <= radius) {
+              if (p.type === 'bubble') { e.slowUntil = this.time + 2 + p.level * .2; e.calmUntil = this.time + 3; }
+              this.hit(e, p.damage, p.type === 'reply');
+            }
+          }
+          this.emit('impact', { x: p.tx, y: p.ty, kind: p.type, radius: p.type === 'pot' ? .28 : p.type === 'bubble' ? 1.15 : 1.45 });
+          if (p.type === 'pot') { p.done = false; p.returning = true; p.x = p.tx; p.y = p.ty; p.tx = p.fromX; p.ty = p.fromY; p.target = null; }
+        } else { p.x += (p.tx - p.x) / d * step; p.y += (p.ty - p.y) / d * step; }
+      }
+      this.enemies = this.enemies.filter(e => !e.dead); this.projectiles = this.projectiles.filter(p => !p.done && p.age < 3);
+      if (!this.pending.length && !this.enemies.length) {
+        this.money += 40 + this.wave * 7; this.projectiles = []; this.cake = null; this.cakeReady = this.time; this.repath();
+        if (this.wave >= 10) { this.state = 'won'; this.emit('end', { won: true }); }
+        else { this.state = 'build'; this.emit('clear', { wave: this.wave, bonus: 40 + this.wave * 7 }); }
+      }
+    }
+  }
+  const api = { Game, findPath, COLS, ROWS, ENTRY, EXIT, ROCKS, TYPES, WAVES, key, distance };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  else root.FridayEngine = api;
+})(typeof globalThis !== 'undefined' ? globalThis : this);
+
+</script>
+  <script>
+(() => {
+  'use strict';
+  const { Game, TYPES, WAVES, COLS, ROWS, ENTRY, EXIT, ROCKS, key } = FridayEngine;
+  const $ = id => document.getElementById(id);
+  const canvas = $('game'), ctx = canvas.getContext('2d');
+  const CELL = 45, OX = 50, OY = 65, W = 1000, H = 650;
+  const px = x => OX + (x + .5) * CELL, py = y => OY + (y + .5) * CELL;
+  let game = new Game(), tool = 'pot', selected = null, hover = null, hoverCheck = null;
+  let paused = false, speed = 1, showPath = true, audioEnabled = false, audioContext = null;
+  let effects = [], particles = [], last = performance.now(), accumulator = 0, visualTime = 0, lastUI = 0;
+  let lastVersion = -1, shownEnd = false, resetUntil = 0, toastTimer, uiSignature = '', stored = { wave: 0, kills: 0, wins: 0 };
+  try { const v = JSON.parse(localStorage.getItem('friday1759-best')); if (v && typeof v === 'object') for (const k of ['wave', 'kills', 'wins']) if (Number.isFinite(v[k]) && v[k] >= 0) stored[k] = v[k]; } catch (_) { /* Private browsing/file:// can disable persistence. */ }
+  function save() { stored.wave = Math.max(stored.wave, game.state === 'won' ? 10 : game.wave - (game.state === 'lost' ? 1 : 0)); stored.kills = Math.max(stored.kills, game.kills); if (game.state === 'won') stored.wins++; try { localStorage.setItem('friday1759-best', JSON.stringify(stored)); } catch (_) {} }
+  function toast(message) { $('toast').textContent = message; $('toast').classList.add('visible'); clearTimeout(toastTimer); toastTimer = setTimeout(() => $('toast').classList.remove('visible'), 2800); }
+  function sound(kind) {
+    if (!audioEnabled) return;
+    try {
+      audioContext ||= new (window.AudioContext || window.webkitAudioContext)();
+      if (audioContext.state === 'suspended') audioContext.resume().catch(() => {});
+      const frequencies = { build: 540, hit: 150, kill: 730, cake: 980, leak: 85, wave: 330, clear: 880 };
+      const oscillator = audioContext.createOscillator(), gain = audioContext.createGain(), now = audioContext.currentTime;
+      oscillator.type = kind === 'leak' ? 'sawtooth' : 'sine'; oscillator.frequency.setValueAtTime(frequencies[kind] || 240, now);
+      oscillator.frequency.exponentialRampToValueAtTime((frequencies[kind] || 240) * .65, now + .11);
+      gain.gain.setValueAtTime(.028, now); gain.gain.exponentialRampToValueAtTime(.001, now + .14);
+      oscillator.connect(gain); gain.connect(audioContext.destination); oscillator.start(); oscillator.stop(now + .15);
+    } catch (_) { audioEnabled = false; }
+  }
+  function selectTool(type) { tool = tool === type ? null : type; selected = null; uiSignature = ''; checkHover(); updateUI(); }
+  for (const [id, t] of Object.entries(TYPES)) {
+    const button = document.createElement('button'); button.className = 'tower-card'; button.dataset.type = id;
+    button.innerHTML = `<span class="tower-icon">${t.icon}</span><span class="tower-copy"><strong>${t.name}</strong><small>${t.desc}</small></span><span class="tower-price">¥${t.cost}<kbd>${Object.keys(TYPES).indexOf(id) + 1}</kbd></span>`;
+    button.addEventListener('click', () => selectTool(id)); $('tower-list').append(button);
+  }
+  function checkHover() {
+    hoverCheck = hover ? tool === 'cake' ? game.cakeCheck(hover.x, hover.y) : TYPES[tool] ? game.buildCheck(hover.x, hover.y, tool) : null : null;
+  }
+  function handleCell(x, y) {
+    if (!['build', 'wave'].includes(game.state)) return;
+    const tower = game.towerAt(x, y);
+    if (tool === 'cake') {
+      const result = game.placeCake(x, y);
+      if (!result.ok) toast(result.reason); else { tool = null; toast('饼已画好：这个项目做完，大家都能当合伙人！'); }
+    } else if (tower) { selected = tower.id; tool = null; }
+    else if (TYPES[tool]) { const result = game.build(x, y, tool); if (!result.ok) toast(result.reason); else { selected = null; if (game.towers.length === 1) toast('第一口锅已就位。沿途多摆几台，再开始第一波。'); } }
+    else toast('先在右侧选一个装备，或按 1 / 2 / 3。');
+    checkHover(); uiSignature = ''; consumeEvents(); updateUI();
+  }
+  function cellFromEvent(event) { const r = canvas.getBoundingClientRect(); return { x: Math.floor(((event.clientX - r.left) / r.width * W - OX) / CELL), y: Math.floor(((event.clientY - r.top) / r.height * H - OY) / CELL) }; }
+  canvas.addEventListener('pointermove', event => { const cell = cellFromEvent(event); if (!hover || hover.x !== cell.x || hover.y !== cell.y) { hover = cell.x >= 0 && cell.x < COLS && cell.y >= 0 && cell.y < ROWS ? cell : null; checkHover(); } });
+  canvas.addEventListener('pointerleave', () => { hover = null; hoverCheck = null; });
+  canvas.addEventListener('pointerdown', event => { if (event.button !== 0) return; event.preventDefault(); canvas.focus({ preventScroll: true }); const { x, y } = cellFromEvent(event); if (x >= 0 && x < COLS && y >= 0 && y < ROWS) { hover = { x, y }; handleCell(x, y); } });
+  function activateCake() {
+    if (game.state !== 'wave') { toast('先让需求进来，再给他们画饼。'); return; }
+    if (game.cakeReady > game.time) { toast('饼的冷却还没好，领导也需要备课。'); return; }
+    selectTool('cake'); if (tool === 'cake') toast('点一个空格，把整群需求骗过去。');
+  }
+  $('cake-btn').addEventListener('click', activateCake);
+  function startWave() { if (!game.towers.length) toast('裸辞式防守？现在仍可随时建造。'); if (game.startWave()) { paused = false; accumulator = 0; consumeEvents(); updateUI(); } }
+  $('wave-btn').addEventListener('click', startWave);
+  function togglePause() { if (game.state !== 'wave') return; paused = !paused; accumulator = 0; updateUI(); }
+  $('pause-btn').addEventListener('click', togglePause);
+  $('speed-btn').addEventListener('click', () => { speed = speed === 1 ? 2 : speed === 2 ? 3 : 1; updateUI(); });
+  $('path-btn').addEventListener('click', () => { showPath = !showPath; updateUI(); });
+  function toggleFocus() { const focused = document.body.classList.toggle('focus-mode'); $('focus-btn').setAttribute('aria-pressed', focused); $('focus-btn').classList.toggle('active', focused); $('focus-btn').textContent = focused ? '退出专注 ↙' : '专注 ⛶'; window.scrollTo({ top: 0 }); }
+  $('focus-btn').addEventListener('click', toggleFocus);
+  $('sound-btn').addEventListener('click', () => { audioEnabled = !audioEnabled; if (audioEnabled) sound('build'); updateUI(); });
+  function reset() {
+    game = new Game(); effects = []; particles = []; tool = 'pot'; selected = null; hover = null; paused = false; speed = 1; accumulator = 0;
+    shownEnd = false; lastVersion = -1; uiSignature = ''; resetUntil = 0; $('result-overlay').classList.add('hidden'); $('reset-btn').textContent = '↺ 重开'; updateUI();
+  }
+  $('reset-btn').addEventListener('click', () => { if (!game.towers.length && !game.wave) return; if (performance.now() < resetUntil) reset(); else { resetUntil = performance.now() + 3500; $('reset-btn').textContent = '确认重开'; toast('再点一次“确认重开”，重新开始这局。'); } });
+  $('play-again').addEventListener('click', reset);
+  $('help-btn').addEventListener('click', () => { if (game.state === 'wave') { paused = true; updateUI(); } $('help-dialog').showModal(); });
+  $('close-help').addEventListener('click', () => $('help-dialog').close()); $('start-help').addEventListener('click', () => $('help-dialog').close());
+  document.addEventListener('keydown', event => {
+    if ($('help-dialog').open || event.ctrlKey || event.metaKey || event.altKey) return;
+    if (event.repeat && !event.key.startsWith('Arrow')) return;
+    if (['1', '2', '3'].includes(event.key)) selectTool(['pot', 'bubble', 'reply'][Number(event.key) - 1]);
+    if (event.key.toLowerCase() === 'q') activateCake();
+    if (event.key.toLowerCase() === 'f') toggleFocus();
+    if (event.code === 'Space' && event.target.tagName !== 'BUTTON') { event.preventDefault(); game.state === 'build' ? startWave() : togglePause(); }
+    if (event.key === 'Escape') { tool = null; selected = null; uiSignature = ''; checkHover(); updateUI(); }
+    if (document.activeElement === canvas) {
+      const dirs = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] };
+      if (dirs[event.key]) { event.preventDefault(); hover ||= { x: 9, y: 5 }; hover.x = Math.max(0, Math.min(19, hover.x + dirs[event.key][0])); hover.y = Math.max(0, Math.min(11, hover.y + dirs[event.key][1])); checkHover(); }
+      if (event.key === 'Enter' && hover) { event.preventDefault(); handleCell(hover.x, hover.y); }
+    }
+  });
+  document.addEventListener('visibilitychange', () => { if (document.hidden && game.state === 'wave') { paused = true; accumulator = 0; updateUI(); } });
+  window.addEventListener('blur', () => { if (game.state === 'wave') { paused = true; accumulator = 0; updateUI(); } });
+  function updateUI() {
+    $('lives').innerHTML = `${game.lives}<em> / 20</em>`; $('life-bar').style.width = `${game.lives * 5}%`;
+    $('money').textContent = `¥ ${game.money}`; $('wave').innerHTML = `${String(game.wave).padStart(2, '0')}<em> / 10</em>`;
+    $('kills').textContent = String(game.kills).padStart(3, '0'); $('bonus').textContent = game.income ? `绕路已薅到 ¥${game.income} 带薪收入` : '绕路工单会产生带薪收入';
+    $('wave-name').textContent = game.wave ? WAVES[game.wave - 1] : '暴风雨前的工位';
+    $('best').textContent = stored.wave ? `最佳 · ${stored.wave} 波 / ${stored.wins} 次准点下班` : '最佳记录 · 暂无';
+    const completed = game.state === 'build' || game.state === 'won' ? game.wave : Math.max(0, game.wave - 1);
+    $('clock').textContent = completed === 0 ? '01:00' : `00:${String(60 - completed * 6).padStart(2, '0')}`;
+    $('status').textContent = game.state === 'build' ? '布置工位' : game.state === 'won' ? '下班成功' : game.state === 'lost' ? '被迫加班' : paused ? '摸鱼暂停中' : '需求正在入侵';
+    $('route-info').textContent = `最短路线 ${game.route.length - 1} 格 · A* 实时寻路`;
+    $('wave-btn').disabled = game.state !== 'build';
+    $('wave-btn').innerHTML = game.state === 'build' ? `${game.wave ? '再来，谁怕谁' : '放他们进来'} <span>第 ${game.wave + 1} 波 →</span>` : game.state === 'wave' ? `正在婉拒中 <span>剩余 ${game.pending.length + game.enemies.length} 张工单</span>` : game.state === 'won' ? '已到点，全员下班 ↗' : '精神状态已清零';
+    $('pause-btn').disabled = game.state !== 'wave'; $('pause-btn').textContent = paused ? '▶ 继续' : 'Ⅱ 暂停'; $('speed-btn').textContent = `${speed}× 速度`;
+    $('path-btn').textContent = `路线 ${showPath ? 'ON' : 'OFF'}`; $('path-btn').classList.toggle('active', showPath); $('path-btn').setAttribute('aria-pressed', showPath);
+    $('sound-btn').textContent = `声音 ${audioEnabled ? 'ON' : 'OFF'}`; $('sound-btn').classList.toggle('active', audioEnabled); $('sound-btn').setAttribute('aria-pressed', audioEnabled);
+    document.querySelectorAll('.tower-card').forEach(button => { button.classList.toggle('selected', tool === button.dataset.type); button.setAttribute('aria-pressed', tool === button.dataset.type); });
+    const cooldown = Math.max(0, Math.ceil(game.cakeReady - game.time));
+    $('cake-btn').classList.toggle('selected', tool === 'cake'); $('cake-btn').setAttribute('aria-pressed', tool === 'cake');
+    $('cake-timer').textContent = cooldown ? `${cooldown}s` : '就绪 ↗';
+    $('cake-label').textContent = game.cake ? `饼还热乎 · 剩余 ${Math.ceil(game.cake.expires - game.time)} 秒` : tool === 'cake' ? '点击空工位，把他们骗过去' : '骗全场改道 · 持续 8 秒';
+    $('cake-btn').disabled = game.state !== 'wave' || cooldown > 0;
+    const t = game.towers.find(t => t.id === selected);
+    const signature = `${t?.id}-${t?.level}-${t ? game.money >= game.upgradeCost(t) : ''}-${tool}`;
+    if (signature !== uiSignature) {
+      uiSignature = signature;
+      if (t) {
+        const s = game.statsFor(t), price = game.upgradeCost(t);
+        $('selection-panel').innerHTML = `<div class="selection-title"><b>${s.name}</b><span>LV.${t.level} / 3</span></div><p>伤害 ${Math.round(s.damage)} · 射程 ${s.range.toFixed(1)} 格<br>${t.type === 'bubble' ? '泡泡能暂时压住红温，再拧几下更给力。' : t.type === 'reply' ? '范围回复“收到”，直接穿透文档护甲。' : '精准锁定快到出口的工单，锅绝不落空。'}</p><div class="selected-actions"><button id="upgrade-btn" ${t.level >= 3 || game.money < price ? 'disabled' : ''}>${t.level >= 3 ? '已满级 ✓' : `升级 ¥${price}`}</button><button id="sell-btn">出售 +¥${Math.floor(t.spent * .7)}</button></div>`;
+        $('upgrade-btn').addEventListener('click', () => { const result = game.upgrade(t.id); if (!result.ok) toast(result.reason); else toast('能力越大，甩的锅越大。升级成功。'); consumeEvents(); updateUI(); });
+        $('sell-btn').addEventListener('click', () => { game.sell(t.id); selected = null; uiSignature = ''; checkHover(); updateUI(); });
+      } else if (tool === 'cake') {
+        $('selection-panel').innerHTML = '<div class="selection-title"><b>饼不必真，路线得真。</b><span>◎</span></div><p>把饼画在远处的空工位，<br>所有工单都会先去那里报到。</p><small>建议：放在炮塔火力覆盖的后方。</small>';
+      } else {
+        $('selection-panel').innerHTML = `<div class="selection-title"><b>${TYPES[tool] ? `已选：${TYPES[tool].name}` : '生存指南 #01'}</b><span>↙</span></div><p>${TYPES[tool] ? '点击空工位连续建造。<br>点击已有设备，升级或出售。' : '炮塔也是障碍物。<br>把工位摆成迷宫，让需求多走两步。'}</p><small>按 Esc 取消选择 · 每台设备最多 3 级</small>`;
+      }
+    }
+    const note = $('map-note'); note.style.opacity = game.wave === 0 ? '1' : '0';
+    note.innerHTML = game.towers.length ? '<span>02</span> 设备就绪。点击下方按钮，开始第一波' : '<span>01</span> 选一台设备，点击空工位布防';
+    if (resetUntil && performance.now() > resetUntil) { resetUntil = 0; $('reset-btn').textContent = '↺ 重开'; }
+    if (lastVersion !== game.pathVersion) { lastVersion = game.pathVersion; checkHover(); }
+  }
+
+  function burst(x, y, color, count = 10) {
+    for (let i = 0; i < count && particles.length < 260; i++) { const angle = Math.random() * Math.PI * 2, v = 20 + Math.random() * 65; particles.push({ x: px(x), y: py(y), vx: Math.cos(angle) * v, vy: Math.sin(angle) * v, life: .45 + Math.random() * .4, age: 0, color, size: 2 + Math.random() * 3 }); }
+  }
+  function floatText(x, y, text, color = '#d7fa69', life = 1.2) { effects.push({ kind: 'text', x: px(x), y: py(y) - 15, text, color, age: 0, life }); }
+  function consumeEvents() {
+    for (const e of game.takeEvents()) {
+      if (e.type === 'build') { burst(e.x, e.y, e.color, 8); sound('build'); }
+      if (e.type === 'kill') { burst(e.x, e.y, e.color, e.boss ? 35 : 8); if (game.kills % 4 === 0 || e.boss) floatText(e.x, e.y, e.boss ? '领导已读不回' : ['不归我管', '收到（不做）', '明天一定', '建议取消'][game.kills % 4], e.color); sound('kill'); }
+      if (e.type === 'impact') { effects.push({ kind: 'ring', x: px(e.x), y: py(e.y), radius: e.radius * CELL, color: TYPES[e.kind].color, age: 0, life: .35, label: e.kind === 'reply' ? '收到' : null }); }
+      if (e.type === 'income') floatText(e.x, e.y, `带薪 +¥${e.amount}`);
+      if (e.type === 'rage') floatText(e.x, e.y, '急急急！', '#f99d83', .9);
+      if (e.type === 'eat') floatText(e.x, e.y, '就这？', '#f3bf8b');
+      if (e.type === 'meeting') { floatText(e.x, e.y, '全体停一下！开个短会！', '#d6b1d8', 1.8); effects.push({ kind: 'ring', x: px(e.x), y: py(e.y), radius: 2.1 * CELL, color: '#d6b1d8', age: 0, life: 1.2 }); }
+      if (e.type === 'cake') { burst(e.x, e.y, '#f3bf8b', 24); floatText(e.x, e.y, '明年给你涨薪', '#f3bf8b', 2); sound('cake'); }
+      if (e.type === 'leak') { floatText(e.x, e.y, `精神 −${e.amount}`, '#f99d83'); sound('leak'); }
+      if (e.type === 'wave') { toast(`第 ${e.wave} 波：${e.name}`); sound('wave'); }
+      if (e.type === 'clear') { toast(`第 ${e.wave} 波已婉拒，补发摸鱼预算 ¥${e.bonus}。`); sound('clear'); save(); }
+      if (e.type === 'end' && !shownEnd) {
+        shownEnd = true; save(); $('result-overlay').classList.remove('hidden');
+        $('result-tag').textContent = e.won ? 'OUT OF OFFICE. OUT OF REACH.' : 'YOU HAVE ONE NEW MEETING.';
+        $('result-sticker').textContent = e.won ? '溜了' : '加班'; $('result-sticker').style.background = e.won ? '#d7fa69' : '#f99d83';
+        $('result-title').textContent = e.won ? '今天的班，就上到这。' : '你没下班，需求很满意。';
+        $('result-description').textContent = `婉拒 ${game.kills} 张工单 · 绕路薅到 ¥${game.income} · 画饼 ${game.stats.cakes} 次。${e.won ? '门禁已关，手机已静音。祝周末愉快。' : '试试把设备摆成折线，再用画饼把工单骗回火力区。'}`;
+      }
+    }
+    if (effects.length > 150) effects.splice(0, effects.length - 150);
+  }
+  function roundRect(x, y, w, h, radius = 5, fill, stroke) {
+    ctx.beginPath(); ctx.roundRect(x, y, w, h, radius); if (fill) { ctx.fillStyle = fill; ctx.fill(); } if (stroke) { ctx.strokeStyle = stroke; ctx.stroke(); }
+  }
+  function text(value, x, y, size, color, align = 'center', weight = '400') { ctx.fillStyle = color; ctx.font = `${weight} ${size}px Arial, "PingFang SC", sans-serif`; ctx.textAlign = align; ctx.textBaseline = 'middle'; ctx.fillText(value, x, y); }
+  function drawRoute(route, color, alpha = 1, width = 2) {
+    if (!route || !route.length) return;
+    ctx.save(); ctx.globalAlpha = alpha; ctx.beginPath(); ctx.moveTo(px(route[0].x), py(route[0].y));
+    for (const p of route.slice(1)) ctx.lineTo(px(p.x), py(p.y));
+    ctx.strokeStyle = color; ctx.lineWidth = width; ctx.lineJoin = 'round'; ctx.setLineDash([4, 9]); ctx.lineDashOffset = -visualTime * 15; ctx.stroke(); ctx.restore();
+  }
+  function drawBoard() {
+    ctx.fillStyle = '#232c25'; ctx.fillRect(0, 0, W, H);
+    // A quiet, printed floor plan, with navigation lanes on top.
+    for (let x = 0; x < COLS; x++) for (let y = 0; y < ROWS; y++) {
+      const left = OX + x * CELL, top = OY + y * CELL;
+      ctx.fillStyle = (x + y) % 2 === 0 ? '#273029' : '#252e27'; ctx.fillRect(left + 1, top + 1, CELL - 2, CELL - 2);
+      ctx.fillStyle = '#40503d'; ctx.fillRect(left - .6, top - .6, 1.2, 1.2);
+    }
+    ctx.strokeStyle = '#3b4938'; ctx.lineWidth = 1; ctx.strokeRect(OX, OY, CELL * COLS, CELL * ROWS);
+    for (let x = 0; x < COLS; x++) text(String(x + 1).padStart(2, '0'), px(x), OY - 12, 8, '#62715a');
+    for (let y = 0; y < ROWS; y++) text(String.fromCharCode(65 + y), OX - 14, py(y), 8, '#62715a');
+    // Entrance and the almost painfully close exit.
+    roundRect(OX - 20, py(5) - 29, 53, 58, 5, '#534733', '#88754e');
+    for (let i = 0; i < 2; i++) text('›', OX - 4 + i * 12, py(5), 26, '#d7b875');
+    roundRect(px(19) - 14, py(5) - 31, 46, 62, 5, '#526334', '#a8c662');
+    text('EXIT', px(19) + 9, py(5) - 17, 8, '#d7fa69', 'center', '700'); text('↗', px(19) + 9, py(5) + 6, 23, '#d7fa69');
+    // Static furniture keeps the office legible without prescribing the maze.
+    for (const [x, y] of ROCKS) {
+      const X = px(x), Y = py(y); roundRect(X - 17, Y - 16, 34, 36, 4, '#1c241e'); roundRect(X - 17, Y - 20, 34, 32, 4, '#3b463b', '#53614a');
+      roundRect(X - 11, Y - 15, 22, 7, 1, '#626e57'); for (let i = 0; i < 3; i++) { ctx.fillStyle = '#2c352b'; ctx.fillRect(X - 10, Y - 3 + i * 4, 20, 2); }
+      text('打印机', X, Y + 27, 7, '#64745a');
+    }
+    if (showPath) {
+      drawRoute(game.route, '#a6bd70', .5);
+      if (game.cake) drawRoute(game.pathFor(ENTRY, { ate: null }), '#f3bf8b', .9, 2.3);
+    }
+    if (game.wave === 0 && !game.towers.length) {
+      for (const [x, y] of [[7, 5], [10, 5], [12, 6]]) { const X = px(x), Y = py(y); ctx.save(); ctx.setLineDash([3, 5]); roundRect(X - 17, Y - 17, 34, 34, 4, null, '#627b45'); ctx.restore(); text('+', X, Y, 17, '#7e9955'); }
+      text('把工位摆成迷宫', px(9.5), py(8), 14, '#718260'); text('让需求先学会绕路，再来谈加班。', px(9.5), py(8) + 24, 10, '#52654a');
+    }
+    text('COFFEE → CODE → GO HOME', 88, 623, 8, '#52634a', 'left'); text('PLEASE DO NOT FEED THE MANAGER', 928, 623, 8, '#52634a', 'right');
+  }
+  function rangeCircle(x, y, radius, color) { ctx.save(); ctx.beginPath(); ctx.arc(px(x), py(y), radius * CELL, 0, Math.PI * 2); ctx.fillStyle = color + '0d'; ctx.fill(); ctx.strokeStyle = color + '77'; ctx.setLineDash([4, 7]); ctx.lineWidth = 1; ctx.stroke(); ctx.restore(); }
+  function drawTower(t, ghost = false) {
+    const X = px(t.x), Y = py(t.y), color = TYPES[t.type].color;
+    ctx.save(); if (ghost) ctx.globalAlpha = .45;
+    roundRect(X - 19, Y - 11, 38, 31, 6, '#0e171b70'); roundRect(X - 19, Y - 18, 38, 32, 5, t.type === 'pot' ? '#58643d' : t.type === 'bubble' ? '#3b5a57' : '#695441', color + '77');
+    ctx.fillStyle = '#17251f'; ctx.fillRect(X - 12, Y + 14, 5, 6); ctx.fillRect(X + 7, Y + 14, 5, 6);
+    if (t.type === 'pot') {
+      ctx.save(); ctx.translate(X, Y - 4); ctx.rotate(t.angle || -.5); ctx.fillStyle = '#a6b677'; ctx.fillRect(0, -4, 21, 8); ctx.beginPath(); ctx.arc(0, 0, 10, 0, Math.PI * 2); ctx.fillStyle = '#293d2c'; ctx.fill(); ctx.strokeStyle = color; ctx.lineWidth = 2; ctx.stroke(); ctx.beginPath(); ctx.arc(0, 0, 5, 0, Math.PI * 2); ctx.strokeStyle = '#91a862'; ctx.stroke(); ctx.restore();
+    } else if (t.type === 'bubble') {
+      roundRect(X - 10, Y - 15, 20, 20, 5, '#88bec580', '#acdfe6'); text('鱼', X, Y - 5, 12, '#d0eeee');
+      for (let i = 0; i < 3; i++) { ctx.beginPath(); ctx.arc(X - 9 + i * 8, Y - 20 - Math.sin(visualTime * 2 + i) * 3, 2 + i % 2, 0, Math.PI * 2); ctx.strokeStyle = '#b8e1e288'; ctx.stroke(); }
+    } else {
+      roundRect(X - 12, Y - 17, 24, 20, 3, '#f3cf9d', '#e4af75'); text('已读', X, Y - 10, 8, '#715031', 'center', 'bold'); text('乱回', X, Y - 1, 7, '#715031'); ctx.fillStyle = '#8b694b'; ctx.fillRect(X - 9, Y + 6, 18, 3);
+    }
+    if (!ghost) for (let i = 0; i < t.level; i++) { ctx.fillStyle = color; ctx.fillRect(X - t.level * 4 + i * 8 + 1, Y + 24, 5, 2); }
+    if (t.id === selected) { ctx.strokeStyle = color; ctx.lineWidth = 1.5; roundRect(X - 23, Y - 25, 46, 50, 8, null, color); }
+    ctx.restore();
+  }
+  function drawEnemy(e) {
+    const X = px(e.x), Y = py(e.y), isBoss = e.type === 'boss', size = isBoss ? 22 : e.type === 'armor' ? 15 : 12;
+    const bob = paused ? 0 : Math.sin(visualTime * (e.type === 'fast' ? 20 : 11) + e.id) * 1.5;
+    const color = e.rage ? '#f99d83' : e.flash > game.time ? '#ffffff' : e.color;
+    ctx.save(); ctx.translate(X, Y + bob);
+    ctx.beginPath(); ctx.ellipse(0, size + 4, size * .9, 4, 0, 0, Math.PI * 2); ctx.fillStyle = '#111b1880'; ctx.fill();
+    if (e.type === 'armor') { roundRect(-size + 4, -size - 3, size * 2, size * 2, 2, '#768f87'); roundRect(-size + 2, -size - 1, size * 2, size * 2, 2, '#92a59b'); }
+    roundRect(-size, -size, size * 2, size * 2, isBoss ? 5 : 2, color, isBoss ? '#e5b092' : '#202922');
+    if (e.type === 'fast') { text('急', 0, -5, 9, '#52643c', 'center', 'bold'); }
+    else if (!isBoss) { ctx.fillStyle = '#8c9b8155'; ctx.fillRect(-size + 4, -size + 4, size * 2 - 8, 2); }
+    if (isBoss) { text('领导', 0, -10, 12, '#73412c', 'center', 'bold'); ctx.fillStyle = '#63462f'; ctx.fillRect(-12, 0, 10, 5); ctx.fillRect(2, 0, 10, 5); ctx.fillRect(-2, 1, 4, 2); }
+    else { ctx.fillStyle = '#31432e'; ctx.fillRect(-6, 0, 3, 3); ctx.fillRect(3, 0, 3, 3); }
+    ctx.beginPath(); ctx.moveTo(-4, size - 5); ctx.lineTo(4, size - 5); ctx.strokeStyle = '#4c5a3f'; ctx.lineWidth = 1.3; ctx.stroke();
+    if (e.slowUntil > game.time) { ctx.beginPath(); ctx.arc(0, 0, size + 5, 0, Math.PI * 2); ctx.fillStyle = '#92cfd818'; ctx.fill(); ctx.strokeStyle = '#92cfd8bb'; ctx.lineWidth = 1.4; ctx.stroke(); }
+    if (e.rage) { text('!', size + 5, -size - 5, 16, '#f99d83', 'center', 'bold'); }
+    if (e.holdUntil > game.time) text('开会中…', 0, size + 14, 8, '#d6b1d8');
+    const barWidth = size * 2 + 4; ctx.fillStyle = '#121e17'; ctx.fillRect(-barWidth / 2, -size - 9, barWidth, 3); ctx.fillStyle = e.rage ? '#f99d83' : '#cfdf9a'; ctx.fillRect(-barWidth / 2, -size - 9, barWidth * Math.max(0, e.hp / e.maxHp), 3);
+    if (isBoss) text(e.name, 0, size + 16, 10, '#f3bf9e', 'center', '600');
+    ctx.restore();
+  }
+  function drawCake() {
+    if (!game.cake) return;
+    const X = px(game.cake.x), Y = py(game.cake.y);
+    ctx.save(); ctx.strokeStyle = '#f3bf8b55'; ctx.lineWidth = 1.5; ctx.setLineDash([5, 7]); ctx.beginPath(); ctx.arc(X, Y, 31 + Math.sin(visualTime * 4) * 3, 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]);
+    ctx.beginPath(); ctx.ellipse(X, Y + 12, 20, 7, 0, 0, Math.PI * 2); ctx.fillStyle = '#f3e4c4'; ctx.fill();
+    roundRect(X - 14, Y - 7, 28, 18, 4, '#d39f6a'); roundRect(X - 14, Y - 12, 28, 9, 4, '#f3d4a6');
+    ctx.fillStyle = '#f0ae98'; ctx.fillRect(X - 14, Y + 1, 28, 4); ctx.fillStyle = '#d7fa69'; ctx.fillRect(X - 1, Y - 24, 2, 12); text('✦', X, Y - 27, 10, '#f3bf8b');
+    text('明年涨薪', X, Y + 30, 9, '#f3bf8b'); ctx.restore();
+  }
+  function render(dt) {
+    ctx.clearRect(0, 0, W, H); drawBoard();
+    const selectedTower = game.towers.find(t => t.id === selected);
+    if (selectedTower) rangeCircle(selectedTower.x, selectedTower.y, game.statsFor(selectedTower).range, TYPES[selectedTower.type].color);
+    if (hover && tool && ['build', 'wave'].includes(game.state)) {
+      const color = hoverCheck?.ok ? tool === 'cake' ? '#f3bf8b' : TYPES[tool].color : '#f99d83';
+      roundRect(OX + hover.x * CELL + 1, OY + hover.y * CELL + 1, CELL - 2, CELL - 2, 4, color + '20', color + '99');
+      if (TYPES[tool] && !game.blocked.has(key(hover.x, hover.y))) { rangeCircle(hover.x, hover.y, TYPES[tool].range, color); drawTower({ ...hover, type: tool, level: 1 }, true); }
+      if (tool === 'cake') text('◎', px(hover.x), py(hover.y), 25, color);
+    }
+    for (const t of game.towers) drawTower(t);
+    drawCake();
+    for (const e of [...game.enemies].sort((a, b) => a.y - b.y)) drawEnemy(e);
+    for (const p of game.projectiles) {
+      ctx.save(); ctx.translate(px(p.x), py(p.y)); ctx.rotate(p.age * 15);
+      if (p.type === 'pot') { ctx.beginPath(); ctx.arc(0, 0, 5, 0, Math.PI * 2); ctx.fillStyle = '#31472e'; ctx.fill(); ctx.strokeStyle = '#d7fa69'; ctx.lineWidth = 2; ctx.stroke(); ctx.fillStyle = '#d7fa69'; ctx.fillRect(4, -1, 6, 2); }
+      else if (p.type === 'bubble') { ctx.beginPath(); ctx.arc(0, 0, 7, 0, Math.PI * 2); ctx.fillStyle = '#92cfd840'; ctx.fill(); ctx.strokeStyle = '#b9e6ec'; ctx.stroke(); }
+      else { roundRect(-7, -5, 14, 10, 2, '#f3bf8b'); text('回', 0, 0, 7, '#674d2b'); }
+      ctx.restore();
+    }
+    const effectDt = paused ? 0 : dt;
+    for (const p of particles) { p.age += effectDt; p.x += p.vx * effectDt; p.y += p.vy * effectDt; p.vy += 70 * effectDt; ctx.globalAlpha = Math.max(0, 1 - p.age / p.life); ctx.fillStyle = p.color; ctx.fillRect(p.x, p.y, p.size, p.size); }
+    ctx.globalAlpha = 1; particles = particles.filter(p => p.age < p.life);
+    for (const e of effects) {
+      e.age += effectDt; const progress = Math.min(1, e.age / e.life); ctx.globalAlpha = 1 - progress;
+      if (e.kind === 'text') text(e.text, e.x, e.y - progress * 34, 12, e.color, 'center', '600');
+      else { ctx.beginPath(); ctx.arc(e.x, e.y, e.radius * (.3 + .7 * progress), 0, Math.PI * 2); ctx.lineWidth = 2 * (1 - progress); ctx.strokeStyle = e.color; ctx.fillStyle = e.color + '12'; ctx.fill(); ctx.stroke(); if (e.label) { ctx.save(); ctx.translate(e.x, e.y); ctx.rotate(-.2); roundRect(-22, -11, 44, 22, 2, null, e.color); text(e.label, 0, 0, 13, e.color, 'center', 'bold'); ctx.restore(); } }
+    }
+    ctx.globalAlpha = 1; effects = effects.filter(e => e.age < e.life);
+    if (paused && game.state === 'wave') { roundRect(380, 24, 240, 38, 6, '#1a231df2', '#718854'); text('Ⅱ 正在带薪暂停 · 点击继续', 500, 43, 12, '#d7fa69'); }
+    if (hover) $('coord').textContent = `WORKSTATION ${String.fromCharCode(65 + hover.y)}${String(hover.x + 1).padStart(2, '0')}`;
+  }
+  function resize() { const dpr = Math.min(window.devicePixelRatio || 1, 2); canvas.width = W * dpr; canvas.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+  window.addEventListener('resize', resize); resize();
+  function frame(now) {
+    const dt = Math.min((now - last) / 1000, .1); last = now;
+    if (!paused) visualTime += dt;
+    if (game.state === 'wave' && !paused) {
+      accumulator += dt * speed;
+      while (accumulator >= 1 / 60) { game.update(1 / 60); accumulator -= 1 / 60; }
+      consumeEvents();
+    } else accumulator = 0;
+    if (now - lastUI >= 100) { updateUI(); lastUI = now; }
+    render(dt); requestAnimationFrame(frame);
+  }
+  updateUI(); requestAnimationFrame(frame);
+})();
+
+</script>
+</body>
+</html>

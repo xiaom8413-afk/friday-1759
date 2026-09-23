@@ -1,0 +1,22 @@
+name: Verify
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Logic and campaign tests
+        run: node --test tests/*.test.cjs
+      - name: Build single-file edition
+        run: node build-standalone.cjs
+      - name: Confirm bundled file matches source
+        run: git diff --exit-code -- 周五1759.html
+      - uses: actions/upload-artifact@v4
+        with:
+          name: friday-1759-offline
+          path: 周五1759.html
